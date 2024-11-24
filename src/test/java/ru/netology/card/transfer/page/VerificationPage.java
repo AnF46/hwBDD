@@ -14,8 +14,8 @@ import static com.codeborne.selenide.Selenide.$;
             codeField.shouldBe(visible);
         }
 
-        public DashboardPage validVerify(DataHelper.VerificationCode verificationCode) {
-            codeField.setValue(verificationCode.getCode());
+        public DashboardPage validVerify() {
+            codeField.setValue(DataHelper.getVerificationCode());
             verifyButton.click();
             return new DashboardPage();
         }
