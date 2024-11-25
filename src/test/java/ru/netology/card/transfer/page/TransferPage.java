@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TransferPage {
 
-    private final SelenideElement header = $(".h1").shouldHave(text("Пополнение карты"));
+    private final SelenideElement header = $(".heading_size_xl").shouldHave(text("Пополнение карты"));
     private final SelenideElement amountField = $("[data-test-id=amount] input");
     private final SelenideElement fromField = $("[data-test-id=from] input");
     private final SelenideElement transferButton = $("[data-test-id=action-transfer]");

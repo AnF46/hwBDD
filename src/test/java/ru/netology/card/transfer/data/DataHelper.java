@@ -29,7 +29,8 @@ public class DataHelper {
     }
 
     public static int generateWrongAmount(int balance) {
-        return new Random().nextInt(5000) + Math.abs(balance) + 1;
+
+        return Math.abs(balance) + new Random().nextInt(5000)  + 1;
     }
 
 

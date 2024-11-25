@@ -30,6 +30,8 @@ public class CardToCardTransferTest {
         firstCardInfo = DataHelper.getFirstCardInfo();
         secondCardInfo = DataHelper.getSecondCardInfo();
         firstCardBalance = dashboardPage.getCardBalance(DataHelper.getMaskedNumber(firstCardInfo.getCardNumber()));
+        secondCardBalance = dashboardPage.getCardBalance(DataHelper.getMaskedNumber(secondCardInfo.getCardNumber()));
+
 
     }
 
@@ -37,14 +39,14 @@ public class CardToCardTransferTest {
         public void transferFromFirstToSecondTest() {
         var amount = generateRightAmount(firstCardBalance);
         var expectedBalanceFirstCard = firstCardBalance - amount;
-        var expectedBalanceSecondeCard = secondCardBalance + amount;
+        var expectedBalanceSecondCard = secondCardBalance + amount;
         var transferPage = dashboardPage.selectCardToTransfer(secondCardInfo);
         dashboardPage = transferPage.makeValidTransfer(String.valueOf(amount), firstCardInfo);
         dashboardPage.reloadDashboardPage();
         var actualBalanceFirstCard = dashboardPage.getCardBalance(getMaskedNumber(firstCardInfo.getCardNumber()));
         var actualBalanceSecondCard = dashboardPage.getCardBalance(getMaskedNumber(secondCardInfo.getCardNumber()));
         assertAll(() -> assertEquals(expectedBalanceFirstCard, actualBalanceFirstCard),
-                () -> assertEquals(expectedBalanceSecondeCard, actualBalanceSecondCard));
+                () -> assertEquals(expectedBalanceSecondCard, actualBalanceSecondCard));
     }
 
         @Test
