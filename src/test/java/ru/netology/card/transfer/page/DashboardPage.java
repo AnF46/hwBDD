@@ -13,8 +13,8 @@ import static com.codeborne.selenide.Selenide.$$;
 public class DashboardPage {
         // к сожалению, разработчики не дали нам удобного селектора, поэтому так
         private ElementsCollection cards = $$(".list__item div");
-        private final String balanceStart = ", баланс: ";
-        private final String balanceFinish = " р. ";
+        private final String balanceStart = "баланс: ";
+        private final String balanceFinish = " р.";
         private final SelenideElement header = $("[data-test-id=dashboard]");
         private final SelenideElement reloadButton = $("[data-test-id=action-reload]");
 
